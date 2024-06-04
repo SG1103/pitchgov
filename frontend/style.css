@@ -1,0 +1,70 @@
+
+body {
+    background: rgb(240, 236, 240);
+    color: rgb(64, 73, 91);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: rgb(64, 73, 91);
+    color: white;
+    padding: 30px;
+}
+section {
+    background: rgb(240, 236, 240);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+}
+div {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    border-radius: 3px;
+}
+div:hover {
+    background: rgb(64, 73, 91);
+    color: white;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li {
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+.align-right {
+    justify-content: flex-end;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: white;
+}
+a:visited {
+    color: white; /* Visited link color (purple) */
+}
+footer {
+    
+    padding: 10px 20px;
+}
+footer ul li {
+    display: block;
+    font-size: 17px;
+    margin: 0 0 6px 0;
+}
+ul.small li {
+    font-size: 16px;
+    margin: 0;
+}
