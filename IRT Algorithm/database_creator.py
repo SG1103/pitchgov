@@ -1,40 +1,39 @@
 import sqlite3
 
-def create_database():
-    # Connect to SQLite database (or create it if it doesn't exist)
-    conn = sqlite3.connect('test_questions.db')
+def setup_database():
+    conn = sqlite3.connect('test_questions_environment.db')
     cursor = conn.cursor()
 
-    # Create a table to store questions
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS questions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             question TEXT,
-            difficulty INTEGER
+            difficulty INTEGER,
+            type TEXT,
+            correct_answer TEXT
         )
     ''')
 
-    # Insert some mock questions into the table
+    # Questions with correct answers
     questions = [
-        ("What is the capital of France?", 3),
-        ("Solve 5 * 7.", 1),
-        ("Explain the theory of relativity.", 9),
-        ("What is the boiling point of water?", 2),
-        ("Translate 'Hello' to Spanish.", 3),
-        ("Calculate the integral of x^2 from 0 to 1.", 7),
-        ("Who wrote 'Macbeth'?", 4),
-        ("Define the concept of 'gravity'.", 5),
-        ("What is the chemical formula for water?", 2),
-        ("Discuss the causes of World War II.", 8)
+        ("Describe the meaning of the term 'community'.", 1, "Short Answer", "Yes"),
+        ("The organisms in this food web are said to be interdependent. Explain what is meant by this.", 2, "Short Answer", "Yes"),
+        ("The information in part (b) shows some interactions and feeding relationships between different species. However, the image does not represent an entire ecosystem. Explain why.", 2, "Structured", "Yes"),
+        ("After a period of drought, there was a reduction in the growth of grass. With reference to the image in part (b), explain how this would affect the population of caterpillars.", 3, "Data Response", "Yes"),
+        ("Suggest how the students could choose four trees.", 2, "Structured", "Yes"),
+        ("Calculate the mean number of lichens found in the quadrats from the west side of the tree.", 2, "Data Response", "Yes"),
+        ("Give another method that the students could have used to measure the abundance of the lichen.", 2, "Short Answer", "Yes"),
+        ("Give two abiotic factors which would impact the growth of these lichens.", 2, "Short Answer", "Yes"),
+        ("State the meaning of the term 'biodiversity'.", 1, "Short Answer", "Yes"),
+        ("Suggest one adjustment to the method which would help to ensure that the student collected a representative sample.", 2, "Structured", "Yes"),
+        ("Identify which site has the highest biodiversity.", 2, "Data Response", "Yes"),
+        ("Suggest why data could not be collected about these birds using the method from part (b).", 2, "Structured", "Yes"),
+        ("Explain how their presence may have led to the biodiversity seen in the data collected.", 3, "Structured", "Yes")
     ]
 
-    # Insert questions into the table
-    cursor.executemany('INSERT INTO questions (question, difficulty) VALUES (?, ?)', questions)
-
-    # Commit changes and close the connection
+    cursor.executemany('INSERT INTO questions (question, difficulty, type, correct_answer) VALUES (?, ?, ?, ?)', questions)
     conn.commit()
     conn.close()
 
 if __name__ == "__main__":
-    create_database()
-    print("Database has been created and populated with questions.")
+    setup_database()
