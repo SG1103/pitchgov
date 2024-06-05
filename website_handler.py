@@ -1,20 +1,18 @@
-from flask import Flask, render_template, request
-from IRT_Algorithm.test_taking import take_test, estimate_ability
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='frontend')
+
+
+demo_question = "This is a demo question"
+
 
 @app.route('/')
-def home():
-    return render_template('home.html')
+def show_results():
 
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    if request.method == 'POST':
-        user_responses = take_test()
-        ability_estimate = estimate_ability(user_responses)
-        return render_template('results.html', variable_1 = ability_estimate)
-    else:
-        return render_template('test.html')
+    # Render the template from the 'websites' folder
+    return render_template('saad_test.html', question=demo_question)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
