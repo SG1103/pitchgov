@@ -1,6 +1,7 @@
 import sqlite3
 import random
 import numpy as np
+from openai_handling import evaluate_answer
 
 def fetch_question(difficulty):
     conn = sqlite3.connect('test_questions_environment.db')
@@ -19,13 +20,14 @@ def take_test(max_questions=10):
         q_id, question, correct_answer = fetch_question(difficulty)  # Fetch question including difficulty
         print(f"\nQuestion ID: {q_id}, Difficulty: {difficulty}")
         print(f"Question: {question}")
-        answer = input("Your answer (Yes/No): ").strip().capitalize()  # Ensure consistent capitalization
+        answer_student = input("Your answer: ").strip().capitalize()  # Ensure consistent capitalization
+        answer = evaluate_answer(answer_student, correct_answer)
         while answer not in ['Yes', 'No']:
             print("Invalid response. Please answer 'Yes' or 'No'.")
             answer = input("Your answer (Yes/No): ").strip().capitalize()  # Ensure consistent capitalization
         
         # Adjust difficulty level based on the response
-        if answer == correct_answer:
+        if answer == "Yes":
             if difficulty < 9:  # Increase difficulty if not at maximum
                 difficulty += 1
         else:
