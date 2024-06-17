@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 
     <section class ="question">
         <form>
-            <label for="answer">Question 1</label>
+            <label for="answer">The question is: {{ question }}</label>
             <textarea id="answer" placeholder="enter answer here"></textarea>
             <div class="next">
                 <button type="button" class="next-button">next</button>
