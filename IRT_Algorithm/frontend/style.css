@@ -1,0 +1,114 @@
+body {
+    background: rgb(240, 236, 240);
+    color: rgb(64, 73, 91);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: rgb(64, 73, 91);
+    color: white;
+    padding: 30px;
+}
+section {
+    background: rgb(240, 236, 240);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+}
+div {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    border-radius: 3px;
+}
+div:hover {
+    background: rgb(64, 73, 91);
+    color: white;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li {
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+.align-right {
+    justify-content: flex-end;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: white;
+}
+a:visited {
+    color: inherit;
+}
+footer {
+    
+    padding: 10px 20px;
+}
+footer ul li {
+    display: block;
+    font-size: 17px;
+    margin: 0 0 6px 0;
+}
+ul.small li {
+    font-size: 16px;
+    margin: 0;
+}
+
+
+.question {
+    padding: 2em;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: calc(100vh - 250px); 
+    flex-direction: column;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+textarea {
+    width: 300px;
+    height: 150px;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 1em;
+    resize: none;
+    margin-bottom: 1em;
+}
+.next {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.next-button {
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    color: rgb(64, 73, 91);
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+}
+div:hover .next-button {
+    color: white;
+}
