@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Include jQuery for AJAX functionality -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <header>
-        
         <h2><a href="bio.html">Biology:</a> Take a Test</h2>
         <nav>   
             <ul>
@@ -19,18 +20,42 @@
                 <li>Register</li>
             </ul>
         </nav>
-        
     </header>
 
-    <section class ="question">
-        <form>
+    <section class="question">
+        <form id="question-form" method="POST">
+            <!-- Hidden input to store question ID -->
+            <input type="hidden" name="question_id" value="{{ question_id }}">
             <label for="answer">The question is: {{ question }}</label>
-            <textarea id="answer" placeholder="enter answer here"></textarea>
+            <textarea id="answer" name="answer" placeholder="enter answer here"></textarea>
             <div class="next">
-                <button type="button" class="next-button">next</button>
+                <button type="submit" class="next-button">Next</button>
             </div>
         </form>
     </section>
 
+    <!-- JavaScript to handle form submission using AJAX -->
+    <script>
+    $(document).ready(function(){
+        $('#question-form').on('submit', function(e){
+            e.preventDefault(); // Stop the form from submitting normally
+            $.ajax({
+                url: '/submit-answer', // The endpoint on your Flask app
+                type: 'POST',
+                data: $(this).serialize(), // Serialize the form data
+                success: function(response) {
+                    // Update your page based on the response
+                    // Assuming response contains the new question and question ID
+                    $('#question-form [name="question_id"]').val(response.new_question_id);
+                    $('label[for="answer"]').text("The question is: " + response.new_question);
+                    $('#answer').val(''); // Clear the text area
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
