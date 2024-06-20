@@ -22,6 +22,10 @@ def process_answer_and_fetch_next(question_id, submitted_answer):
     
     is_correct = (evaluate_answer(submitted_answer, correct_answer) == 'Yes')
     new_difficulty = current_difficulty + 1 if is_correct else max(current_difficulty - 1, 1)
+
+    if question_number >= 10:
+        conn.close()
+        return None, question_number, is_correct    
     
     cursor.execute("SELECT id, question, correct_answer FROM questions WHERE difficulty = ?", (new_difficulty,))
     new_question_data = cursor.fetchone()

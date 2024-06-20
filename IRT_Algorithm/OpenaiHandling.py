@@ -7,9 +7,8 @@ prompt = "You are an AI assistant tasked with marking student answers and can on
 
 
 def evaluate_answer(student_answer, correct_answer):
-    # Use OpenAI API to evaluate the answer
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo-0125",  # Choose the model
+        model="gpt-3.5-turbo-0125",  
         messages=[
             {"role": "system", "content": prompt},
             {"role": "user", "content": f"This is the student's answer: {student_answer} and this is the correct answer {correct_answer}"}
