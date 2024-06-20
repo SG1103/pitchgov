@@ -1,15 +1,20 @@
 import sqlite3
-from openai_handling import evaluate_answer
+from OpenaiHandling import evaluate_answer
+
+question_number = 0
 
 def fetch_question(difficulty):
+    global question_number
     conn = sqlite3.connect('test_questions_environment.db')
     cursor = conn.cursor()
     cursor.execute("SELECT id, question, correct_answer FROM questions WHERE difficulty = ?", (difficulty,))
     question_data = cursor.fetchone()
     conn.close()
-    return question_data
+    question_number = 1 
+    return (*question_data, question_number)
 
 def process_answer_and_fetch_next(question_id, submitted_answer):
+    global question_number
     conn = sqlite3.connect('test_questions_environment.db')
     cursor = conn.cursor()
     cursor.execute("SELECT correct_answer, difficulty FROM questions WHERE id = ?", (question_id,))
@@ -21,5 +26,5 @@ def process_answer_and_fetch_next(question_id, submitted_answer):
     cursor.execute("SELECT id, question, correct_answer FROM questions WHERE difficulty = ?", (new_difficulty,))
     new_question_data = cursor.fetchone()
     conn.close()
-    
-    return new_question_data, is_correct
+    question_number += 1
+    return (new_question_data, question_number, is_correct)

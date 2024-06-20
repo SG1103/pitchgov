@@ -24,8 +24,10 @@
 
     <section class="question">
         <form id="question-form" method="POST">
-            <!-- Hidden input to store question ID -->
             <input type="hidden" name="question_id" value="{{ question_id }}">
+            <div class="question-number">
+                Question Number: {{ question_number }}
+            </div>
             <label for="answer">The question is: {{ question }}</label>
             <textarea id="answer" name="answer" placeholder="enter answer here"></textarea>
             <div class="next">
@@ -36,26 +38,28 @@
 
     <!-- JavaScript to handle form submission using AJAX -->
     <script>
-    $(document).ready(function(){
-        $('#question-form').on('submit', function(e){
-            e.preventDefault(); // Stop the form from submitting normally
-            $.ajax({
-                url: '/submit-answer', // The endpoint on your Flask app
-                type: 'POST',
-                data: $(this).serialize(), // Serialize the form data
-                success: function(response) {
-                    // Update your page based on the response
-                    // Assuming response contains the new question and question ID
-                    $('#question-form [name="question_id"]').val(response.new_question_id);
-                    $('label[for="answer"]').text("The question is: " + response.new_question);
-                    $('#answer').val(''); // Clear the text area
-                },
-                error: function(error) {
-                    console.log('Error:', error);
-                }
+        $(document).ready(function(){
+            $('#question-form').on('submit', function(e){
+                e.preventDefault(); // Stop the form from submitting normally
+                $.ajax({
+                    url: '/submit-answer', // The endpoint on your Flask app
+                    type: 'POST',
+                    data: $(this).serialize(), // Serialize the form data
+                    success: function(response) {
+                        // Update your page based on the response
+                        // Assuming response contains the new question, question ID, and question number
+                        $('#question-form [name="question_id"]').val(response.new_question_id);
+                        $('.question-number').text("Question Number: " + response.question_number); // Update the question number
+                        $('label[for="answer"]').text("The question is: " + response.new_question);
+                        $('#answer').val(''); // Clear the text area
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    }
+                });
             });
         });
-    });
     </script>
+        
 </body>
 </html>
