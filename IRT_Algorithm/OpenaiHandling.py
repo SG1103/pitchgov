@@ -16,4 +16,12 @@ def evaluate_answer(student_answer, correct_answer):
     )
     return response.choices[0].message.content
 
-
+def create_report(sys_prompt, user_prompt):
+    response = openai.chat.completions.create(
+        model="gpt-3.5-turbo-0125",  
+        messages=[
+            {"role": "system", "content": sys_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+    )
+    return response.choices[0].message.content

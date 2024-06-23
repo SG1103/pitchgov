@@ -22,6 +22,9 @@ def submit_answer():
     if question_number > 10:
         return redirect(url_for('results'))
     
+    if question_number == 3:
+        print(getresults())
+
     new_question_id, next_question, _ = next_question_data
     
     return jsonify({
