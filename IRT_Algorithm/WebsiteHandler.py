@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import TestManager
 import random
+from ResultAnalyzer import getresults
 
 
 app = Flask(__name__, template_folder='frontend', static_folder='frontend')
@@ -20,7 +21,7 @@ def submit_answer():
 
     if question_number > 10:
         return redirect(url_for('results'))
-
+    
     new_question_id, next_question, _ = next_question_data
     
     return jsonify({
@@ -33,7 +34,8 @@ def submit_answer():
 
 @app.route('/results')
 def results():
-    # Handle displaying results here, possibly passing necessary data
+
+
     return render_template('results.html')
 
 if __name__ == '__main__':

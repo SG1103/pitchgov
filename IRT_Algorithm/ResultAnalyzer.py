@@ -1,4 +1,8 @@
 import sqlite3
+from TestManager import responses_log
+
+def getresults():
+    return responses_log
 
 def get_quiz_data(user_id):
     """Fetch quiz data for a specific user."""
