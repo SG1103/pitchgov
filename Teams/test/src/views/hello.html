@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Tab</title>
+    <!-- Link to your custom CSS; ensure the path is correct -->
+    <link rel="stylesheet" href="/static/styles/custom.css">
+    <!-- Microsoft Teams JavaScript SDK -->
+    <script src="https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="content">
+        <h1>Welcome to the Hello Tab</h1>
+        <p>This tab demonstrates basic integration with Microsoft Teams.</p>
+        <button onclick="navigateToIndex()">Go to Index Page</button>
+    </div>
+    
+    <script>
+        // Initialize Microsoft Teams SDK
+        microsoftTeams.initialize();
+
+        // Function to navigate to the Index page
+        function navigateToIndex() {
+            // Change this URL to match the URL configured in your Teams manifest and where your index.html is hosted
+            microsoftTeams.executeDeepLink("https://b816-109-175-144-37.ngrok-free.app/frontend/index.html");
+        }
+
+        // Notify Microsoft Teams when the app is successfully loaded
+        microsoftTeams.appInitialization.notifySuccess();
+    </script>
+</body>
+</html>
