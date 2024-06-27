@@ -1,0 +1,86 @@
+:root {
+    --background: rgb(64, 73, 91);
+    --hover: #00BCF2;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: var(--background) !important;
+    color: #ffffff !important;
+    width: 100%;
+    padding-top: 20px;
+}
+
+footer a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--hover) !important;
+}
+
+footer .bi {
+    color: inherit;
+}
+
+footer a:hover .bi {
+    color: var(--hover-coral) !important;
+}
+
+.navbar {
+    background-color: var(--background) !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-link:focus {
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.navbar .container-fluid {
+    flex-wrap: wrap;
+}
+
+.navbar-collapse {
+    width: 100%;
+}
+
+.navbar-nav {
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        justify-content: flex-start;
+    }
+}
+
+.image-section {
+    padding: 20px 0;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+}
