@@ -1,6 +1,6 @@
 :root {
     --background: rgb(64, 73, 91);
-    --hover: #00BCF2;
+    --hover: rgb(0, 37, 112);
 }
 
 html, body {
@@ -83,4 +83,23 @@ footer a:hover .bi {
 .image-section img {
     max-width: 100%;
     height: auto;
+}
+
+.subject-selection .card-body {
+    position: relative; /* Establishes the containing block for absolute positioning */
+    padding-bottom: 60px; /* Ensures there's space for the button */
+}
+
+.subject-selection .btn-primary {
+    position: absolute;
+    bottom: 5px; /* Positions the button 5px up from the bottom */
+    left: 50%;  /* Centers the button */
+    transform: translateX(-50%); /* Corrects the centering by shifting the button back by half its width */
+    width: 90%;  /* Adjust the width if necessary */
+}
+
+.btn-primary {
+    background-color: var(--background);
+    border-color: transparent;
+    --bs-btn-hover-bg: var(--hover);
 }
