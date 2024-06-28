@@ -5,8 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="stylesaad.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/custom.css" />
 </head>
+
+<style>
+  :root {
+  --background: rgb(64, 73, 91);
+  --hover: rgb(0, 37, 112);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: var(--background) !important;
+  color: #ffffff !important;
+  width: 100%;
+  padding-top: 20px;
+}
+
+footer a {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--hover) !important;
+}
+
+footer .bi {
+  color: inherit;
+}
+
+footer a:hover .bi {
+  color: var(--hover-coral) !important;
+}
+
+.navbar {
+  background-color: var(--background) !important;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+}
+
+.navbar-link:focus {
+  color: #ffffff !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+}
+
+.navbar .container-fluid {
+  flex-wrap: wrap;
+}
+
+.navbar-collapse {
+  width: 100%;
+}
+
+.navbar-nav {
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+      justify-content: flex-start;
+  }
+}
+
+.image-section {
+  padding: 20px 0;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.subject-selection .card-body {
+  position: relative; /* Establishes the containing block for absolute positioning */
+  padding-bottom: 60px; /* Ensures there's space for the button */
+}
+
+.subject-selection .btn-primary {
+  position: absolute;
+  bottom: 5px; /* Positions the button 5px up from the bottom */
+  left: 50%;  /* Centers the button */
+  transform: translateX(-50%); /* Corrects the centering by shifting the button back by half its width */
+  width: 90%;  /* Adjust the width if necessary */
+}
+
+.btn-primary {
+  background-color: var(--background);
+  border-color: transparent;
+  --bs-btn-hover-bg: var(--hover);
+}
+</style>
 
 <body>
 
@@ -63,25 +171,25 @@
     
     <section class="image-section">
         <div class="container">
-            <img src="./images/home.jpg" class="img-fluid" alt="Descriptive Alt Text">
+            <img src="static/images/home.jpg" class="img-fluid" alt="Descriptive Alt Text">
         </div>
     </section>
 
     <section class="subject-selection py-4">
-        <div class="container">
-            <!-- Introductory Text Above the Subjects -->
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center">Choose Your Subject</h2>
-                    <p class="lead text-center">Select a subject to dive deeper into our comprehensive educational resources tailored for each scientific discipline.</p>
-                </div>
-            </div>
+      <div class="container">
+          <!-- Introductory Text Above the Subjects -->
+          <div class="row">
+              <div class="col-12">
+                  <h2 class="text-center">Choose Your Subject</h2>
+                  <p class="lead text-center">Select a subject to dive deeper into our comprehensive educational resources tailored for each scientific discipline.</p>
+              </div>
+          </div>
         <div class="container">
             <div class="row">
                 <!-- Biology Section -->
                 <div class="col-md-4">
                     <div class="card h-100">
-                        <img src="./images/bio.webp" class="card-img-top" alt="Biology">
+                        <img src="static/images/bio.webp" class="card-img-top" alt="Biology">
                         <div class="card-body">
                             <h5 class="card-title">Biology</h5>
                             <p class="card-text">Explore the science of life and living organisms with our comprehensive biology resources.</p>
@@ -92,7 +200,7 @@
                 <!-- Physics Section -->
                 <div class="col-md-4">
                     <div class="card h-100">
-                        <img src="./images/physics.webp" class="card-img-top" alt="Physics">
+                        <img src="static/images/physics.webp" class="card-img-top" alt="Physics">
                         <div class="card-body">
                             <h5 class="card-title">Physics</h5>
                             <p class="card-text">Dive into the laws of nature with our detailed studies on physics.</p>
@@ -103,7 +211,7 @@
                 <!-- Chemistry Section -->
                 <div class="col-md-4">
                     <div class="card h-100">
-                        <img src="./images/chemistry.webp" class="card-img-top" alt="Chemistry">
+                        <img src="static/images/chemistry.webp" class="card-img-top" alt="Chemistry">
                         <div class="card-body">
                             <h5 class="card-title">Chemistry</h5>
                             <p class="card-text">Understand the substances of which matter is composed with our chemistry topics.</p>

@@ -15,12 +15,12 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "test${{APP_NAME_SUFFIX}}",
-        "full": "Full name for test"
+        "short": "tab${{APP_NAME_SUFFIX}}",
+        "full": "Full name for tab"
     },
     "description": {
-        "short": "Short description of test",
-        "full": "Full description of test"
+        "short": "Short description of tab",
+        "full": "Full description of tab"
     },
     "accentColor": "#FFFFFF",
     "bots": [],
@@ -34,13 +34,6 @@
             "scopes": [
                 "personal"
             ]
-        },
-        {
-            "entityId": "indexTab",
-            "name": "Index",
-            "contentUrl": "https://b816-109-175-144-37.ngrok-free.app/frontend/index.html",
-            "websiteUrl": "https://b816-109-175-144-37.ngrok-free.app/frontend/index.html",
-            "scopes": ["personal"]
         }
     ],
     "permissions": [
@@ -48,6 +41,6 @@
         "messageTeamMembers"
     ],
     "validDomains": [
-        "${{TAB_DOMAIN}}",
-        "https://b816-109-175-144-37.ngrok-free.app"]
+        "${{TAB_DOMAIN}}"
+    ]
 }
