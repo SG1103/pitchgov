@@ -7,6 +7,8 @@ def getresults():
 
     result = str(responses_log)
 
+    print(result)
+
     report = create_report(prompt, result)
 
     return report

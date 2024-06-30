@@ -1,0 +1,33 @@
+{
+    "topics": [
+      {
+        "name": "The Organism in the Environment",
+        "resources": {
+          "website": "https://igcsebio.sciencesauceonline.com/edexcel9-1/orgnism-environment/",
+          "youtube": "https://www.youtube.com/watch?v=IVF8ZKTESE0"
+        }
+      },
+      {
+        "name": "Feeding Relationships",
+        "resources": {
+          "website": "https://www.savemyexams.co.uk/igcse_biology_edexcel/revision_notes/feeding-relationships/",
+          "youtube": "https://www.youtube.com/watch?v=tC-u8xcZYSM"
+        }
+      },
+      {
+        "name": "Cycles within Ecosystems",
+        "resources": {
+          "website": "https://www.savemyexams.co.uk/igcse_biology_edexcel/revision_notes/cycles-within-ecosystems/",
+          "youtube": "https://www.youtube.com/playlist?list=PLhwQ_-6xAMHugUT7lD13V-K3G3aGu6d56"
+        }
+      },
+      {
+        "name": "Human Influences on the Environment",
+        "resources": {
+          "website": "https://www.savemyexams.co.uk/igcse_biology_edexcel/revision_notes/human-influences-on-the-environment/",
+          "youtube": "https://www.youtube.com/watch?v=A63QpIPYlY0"
+        }
+      }
+    ]
+  }
+  
