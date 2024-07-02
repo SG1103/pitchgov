@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import TestManager
 import random
-from ResultAnalyzer import getresults
+from ResultAnalyzer import getresults, send_teams_message
 
 
 app = Flask(__name__, template_folder='frontend', static_folder='frontend')
@@ -23,7 +23,7 @@ def submit_answer():
         return redirect(url_for('results'))
     
     if question_number == 3:
-        print(getresults())
+        send_teams_message()
 
     new_question_id, next_question, _ = next_question_data
     
