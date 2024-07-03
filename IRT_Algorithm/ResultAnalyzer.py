@@ -1,6 +1,7 @@
 from TestManager import responses_log
 from OpenaiHandling import create_report
 import requests
+import json
 
 
 def getresults():
@@ -9,16 +10,32 @@ def getresults():
 
     result = str(responses_log)
 
-    print(result)
-
     report = create_report(prompt, result)
 
     return report
 
 
 def send_teams_message():
+    results = getresults()
+    print(results)
+    title = "Title"
+    view_url = "https://chatgpt.com/c/8921ed03-ab66-4c3e-876b-111cf528b5dd"
 
-    text = getresults()
+    with open("./IRT_Algorithm/teamscard.json", 'r') as file:
+        card_json = json.load(file)
+
+    def update_json(obj):
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                if isinstance(v, str):
+                    obj[k] = v.replace("${title}", title).replace("${results}", results).replace("${viewUrl}", view_url)
+                else:
+                    update_json(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                update_json(item)
+    
+    update_json(card_json)
 
     base_url = "https://prod-18.uksouth.logic.azure.com:443/workflows/d918d252dbbf4e818fbf7ddba27371a5/triggers/manual/paths/invoke"
     params = {
@@ -30,27 +47,19 @@ def send_teams_message():
     headers = {
         "Content-Type": "application/json"
     }
-    # Define the attachments array with your required data structure
+
     data = {
         "attachments": [
             {
                 "contentType": "application/vnd.microsoft.card.adaptive",
-                "content": {
-                    "type": "AdaptiveCard",
-                    "body": [
-                        {
-                            "type": "TextBlock",
-                            "text": text
-                        }
-                    ]
-                }
+                "content": card_json
             }
         ]
     }
     
     response = requests.post(base_url, params=params, json=data, headers=headers)
     
-    if response.status_code == 200:
+    if response.status_code in [200, 202]:
         print("Message sent successfully!")
     else:
         print(f"Failed to send message: {response.status_code} - {response.text}")

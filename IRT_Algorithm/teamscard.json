@@ -1,0 +1,82 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${title}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true,
+            "color": "Dark"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://files.oaiusercontent.com/file-ZSIFVcREWRLsdrTq3aunT1oa?se=2024-07-03T19%3A07%3A59Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Da7e98a99-6cd6-4f1f-a400-01f6cb04986f.webp&sig=sKt8kna9ph0RqnY6pl/BbP2KtOHdhZGW8GHUV4OIs00%3D"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Well done!\n\n\nBelow, you'll find your assessment results and additional resources to help you review and continue your learning journey.",
+                            "wrap": true,
+                            "fontType": "Default",
+                            "size": "Medium",
+                            "weight": "Bolder",
+                            "isSubtle": true,
+                            "color": "Default"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "${results}",
+            "wrap": true,
+            "size": "Large"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "View",
+                    "url": "${viewUrl}"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "View",
+                    "url": "${viewUrl}"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "View",
+                    "url": "${viewUrl}"
+                }
+            ]
+        }
+    ],
+    "fallbackText": "j"
+}

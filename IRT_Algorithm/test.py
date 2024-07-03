@@ -1,6 +1,25 @@
 import requests
+import json
 
-def send_webhook_message(text, image_url):
+
+
+def send_teams_message():
+
+    with open("./IRT_Algorithm/teamscard.json", 'r') as file:
+        card_json = json.load(file)
+
+    title = "Title"
+    results = "results"
+    view_url = "https://chatgpt.com/c/8921ed03-ab66-4c3e-876b-111cf528b5dd"
+
+    card_json_str = json.dumps(card_json)
+    card_json_str = card_json_str.replace("${title}", title)
+    card_json_str = card_json_str.replace("${results}", results)
+    card_json_str = card_json_str.replace("${viewUrl}", view_url)
+    card_json = json.loads(card_json_str)
+
+    print(type(card_json))
+
     base_url = "https://prod-18.uksouth.logic.azure.com:443/workflows/d918d252dbbf4e818fbf7ddba27371a5/triggers/manual/paths/invoke"
     params = {
         "api-version": "2016-06-01",
@@ -11,43 +30,24 @@ def send_webhook_message(text, image_url):
     headers = {
         "Content-Type": "application/json"
     }
-    # Adding an image along with text in the attachments array
+    # Define the attachments array with your required data structure
     data = {
         "attachments": [
             {
                 "contentType": "application/vnd.microsoft.card.adaptive",
-                "content": {
-                    "type": "AdaptiveCard",
-                    "version": "1.2",
-                    "body": [
-                        {
-                            "type": "TextBlock",
-                            "text": text,
-                            "wrap": True
-                        },
-                        {
-                            "type": "Image",
-                            "url": image_url,
-                            "size": "medium"
-                        }
-                    ]
-                }
-            }
-        ]
-    }
+                "content": card_json
+                                    }
+                                ]
+                            }
     
     response = requests.post(base_url, params=params, json=data, headers=headers)
     
     if response.status_code == 200:
-        print("Message with image sent successfully!")
+        print("Message sent successfully!")
     else:
         print(f"Failed to send message: {response.status_code} - {response.text}")
-
 # Example usage:
-send_webhook_message(
-    "Hello from webhook with image!",
-    "https://files.oaiusercontent.com/file-7g0jLDT1CiUtbRj4BbWlAaCf?se=2024-06-30T18%3A35%3A00Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D27eda0f4-6849-4bdc-984a-c22d23f5dbba.webp&sig=BfZkwC/ru5b3SeZZfvpspEVCRoA3fShfrbetdQfaTCU%3D"
-)
+send_teams_message()
 
 
 
