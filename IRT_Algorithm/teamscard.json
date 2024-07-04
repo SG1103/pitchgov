@@ -52,8 +52,8 @@
             "actions": [
                 {
                     "type": "Action.OpenUrl",
-                    "title": "View",
-                    "url": "${viewUrl}"
+                    "title": "${urlTitle1}",
+                    "url": "${Url1}"
                 }
             ]
         },
@@ -62,8 +62,8 @@
             "actions": [
                 {
                     "type": "Action.OpenUrl",
-                    "title": "View",
-                    "url": "${viewUrl}"
+                    "title": "${urlTitle2}",
+                    "url": "${Url2}"
                 }
             ]
         },
@@ -72,8 +72,8 @@
             "actions": [
                 {
                     "type": "Action.OpenUrl",
-                    "title": "View",
-                    "url": "${viewUrl}"
+                    "title": "${urlTitle3}",
+                    "url": "${Url3}"
                 }
             ]
         }
