@@ -3,7 +3,6 @@
     --hover: rgb(86, 49, 84);
 }
 
-
 html, body {
     height: 100%;
     margin: 0;
@@ -110,3 +109,38 @@ footer a:hover .bi {
     border-color: transparent;
     --bs-btn-hover-bg: var(--hover);
 }
+
+/* Styles for Bio page */
+.subject-selection-biology .col-md-3 {
+    width: 25%; /* Ensures four blocks in one row */
+    margin-bottom: 5rem;
+}
+
+.subject-selection-biology .row.d-flex {
+    justify-content: center; /* Centers the test block */
+}
+
+.subject-selection-biology.mb-5 {
+    margin-bottom: 5rem; /* Adds bottom margin to the test section */
+}
+
+.subject-selection-biology .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.subject-selection-biology .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Ensures content starts from the top and the button is at the bottom */
+}
+
+.subject-selection-biology .btn.btn-primary.mt-auto {
+    align-self: center;
+    width: 90%;
+}
+
+
