@@ -6,11 +6,23 @@ from ResultAnalyzer import getresults, send_teams_message
 
 app = Flask(__name__, template_folder='frontend', static_folder='frontend')
 
+
+
 @app.route('/')
-def home():
-    question_data = TestManager.fetch_question("biology", "ecology",random.randint(1, 9))  # Randomly select difficulty for demonstration
-    q_id, question, _, question_number = question_data 
-    return render_template('bio test.html', question=question, question_id=q_id, question_number = question_number)
+def index():
+    return render_template('index.html')
+
+@app.route('/biology')
+def biology():
+    return render_template('biology.html')
+
+@app.route('/test')
+def test():
+    # Assume you need to load initial data for the test
+    question_data = TestManager.fetch_question("biology", "ecology", random.randint(1, 9))
+    q_id, question, _, question_number = question_data
+    return render_template('test.html', question=question, question_id=q_id, question_number=question_number)
+
 
 @app.route('/submit-answer', methods=['POST'])
 def submit_answer():
@@ -18,6 +30,8 @@ def submit_answer():
     user_answer = request.form.get('answer')
 
     next_question_data, question_number, answer_correct = TestManager.process_answer_and_fetch_next("biology", "ecology",question_id, user_answer)
+
+    print(question_number)
 
     if question_number > 10:
         return redirect(url_for('results'))

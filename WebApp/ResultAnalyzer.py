@@ -19,10 +19,10 @@ def send_teams_message():
     results = getresults()
 
     title = "Title"
-    with open("./IRT_Algorithm/teamscard.json", 'r') as file:
+    with open("./WebApp/databases/teamscard.json", 'r') as file:
         card_json = json.load(file)
 
-    with open("./IRT_Algorithm/studymaterials.json", 'r') as file:
+    with open("./WebApp/databases/studymaterials.json", 'r') as file:
         study_materials = json.load(file)
 
     preference = "websites"

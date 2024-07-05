@@ -7,7 +7,7 @@ responses_log = []
 def fetch_question(topic, subtopic, difficulty):
     global question_number
     table_name = f"{topic}_{subtopic}"
-    conn = sqlite3.connect('new_questions_environment.db')
+    conn = sqlite3.connect('./WebApp/databases/new_questions_environment.db')
     cursor = conn.cursor()
     cursor.execute(f"SELECT id, question, correct_answer FROM {table_name} WHERE difficulty = ? LIMIT 1", (difficulty,))
     question_data = cursor.fetchone()
@@ -20,7 +20,7 @@ def process_answer_and_fetch_next(topic, subtopic, question_id, submitted_answer
     global responses_log 
 
     table_name = f"{topic}_{subtopic}"
-    conn = sqlite3.connect('new_questions_environment.db')
+    conn = sqlite3.connect('./WebApp/databases/new_questions_environment.db')
     cursor = conn.cursor()
     
     # Fetch correct answer and difficulty of the current question
