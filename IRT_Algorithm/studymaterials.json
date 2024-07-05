@@ -1,0 +1,40 @@
+{
+  "Ecology_and_the_Environment": {
+    "websites": [
+      {
+        "title": "The Organism in the Environment - Science Sauce",
+        "url": "https://igcsebio.sciencesauceonline.com/edexcel9-1/orgnism-environment/"
+      },
+      {
+        "title": "Feeding Relationships - Save My Exams",
+        "url": "https://www.savemyexams.co.uk/igcse_biology_edexcel/revision_notes/feeding-relationships/"
+      },
+      {
+        "title": "Cycles within Ecosystems - Save My Exams",
+        "url": "https://www.savemyexams.co.uk/igcse_biology_edexcel/revision_notes/cycles-within-ecosystems/"
+      },
+      {
+        "title": "Human Influences on the Environment - Save My Exams",
+        "url": "https://www.savemyexams.co.uk/igcse_biology_edexcel/revision_notes/human-influences-on-the-environment/"
+      }
+    ],
+    "youtube_links": [
+      {
+        "title": "IGCSE Biology - Chapter 19 | Organisms and their Environment",
+        "url": "https://www.youtube.com/watch?v=IVF8ZKTESE0"
+      },
+      {
+        "title": "IGCSE EDEXCEL Biology: Ecology and the Environment Complete Revision",
+        "url": "https://www.youtube.com/watch?v=DuGItYQ0jI8"
+      },
+      {
+        "title": "GCSE Biology - Adaptations",
+        "url": "https://www.youtube.com/watch?v=tC-u8xcZYSM"
+      },
+      {
+        "title": "Pollution - Deforestation - GCSE Biology (9-1)",
+        "url": "https://www.youtube.com/watch?v=A63QpIPYlY0"
+      }
+    ]
+  }
+}
