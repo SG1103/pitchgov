@@ -182,6 +182,7 @@ footer a:hover .bi {
     margin-bottom: 15px; /* Space between paragraphs */
 }
 
+
 .form-group {
     padding: 5px; 
 }
@@ -209,6 +210,7 @@ footer a:hover .bi {
     content: '\f00d'; /* FontAwesome icon code for 'times' */
     font-family: 'FontAwesome'; /* Ensuring the correct font family is used */
 }
+
 
 .card-header {
     background-color: var(--background) !important;

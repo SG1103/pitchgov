@@ -29,7 +29,7 @@ def submit_answer():
     if question_number > 10:
         return jsonify({'end': True, 'redirect': url_for('results')})
     
-    if question_number == 3:
+    if question_number == 10:
         send_teams_message()
 
     if next_question_data:
