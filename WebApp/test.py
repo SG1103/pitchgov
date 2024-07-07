@@ -5,7 +5,7 @@ import json
 
 def send_teams_message():
 
-    with open("./IRT_Algorithm/teamscard.json", 'r') as file:
+    with open("./WebApp/databases/teamscard.json", 'r') as file:
         card_json = json.load(file)
 
     title = "Title"
@@ -46,8 +46,7 @@ def send_teams_message():
         print("Message sent successfully!")
     else:
         print(f"Failed to send message: {response.status_code} - {response.text}")
-# Example usage:
-send_teams_message()
+
 
 
 

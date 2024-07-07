@@ -18,7 +18,7 @@ main {
     flex: 1;
 }
 
-header {
+header, .modal-header {
     background: var(--background);
     color: #ffffff;
     padding: 20px;
@@ -156,3 +156,56 @@ footer a:hover .bi {
 
 }
 
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Modal content styling */
+.modal-content {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #f9f9f9; /* Light background for the modal */
+}
+
+.modal-title {
+    font-size: 1.5rem; /* Larger font size for modal title */
+    font-weight: 500; /* Bold font weight for modal title */
+}
+
+.modal-body {
+    font-size: 1rem;
+    padding: 20px; /* More padding for body text */
+}
+
+.modal-body p {
+    text-align: justify; /* Justify text for better alignment */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.form-group {
+    padding: 5px; 
+}
+
+/* Customizing the close button of the Bootstrap modal */
+.modal-close {
+    font-size: 24px; /* Larger font size */
+    color: #6c757d; /* Custom color */
+}
+
+.modal-close:hover {
+    color: #000; /* Color change on hover */
+    cursor: pointer; /* Change cursor to pointer to indicate clickability */
+}
+
+/* Adding custom padding and possibly a background */
+.modal-close {
+    padding: 5px 10px;
+    border-radius: 50%; /* Optional: rounded shape */
+    background-color: #f8f9fa; /* Optional: background color */
+}
+
+/* Applying custom icon from Font Awesome or similar */
+.modal-close:before {
+    content: '\f00d'; /* FontAwesome icon code for 'times' */
+    font-family: 'FontAwesome'; /* Ensuring the correct font family is used */
+}
