@@ -1,0 +1,211 @@
+:root {
+    --background: linear-gradient(to right, rgb(61, 72, 92), rgb(86, 49, 84));
+    --hover: rgb(86, 49, 84);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+header, .modal-header {
+    background: var(--background);
+    color: #ffffff;
+    padding: 20px;
+}
+
+footer {
+    background: var(--background) !important;
+    color: #ffffff !important;
+    width: 100%;
+    padding-top: 20px;
+}
+
+footer a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--hover) !important;
+}
+
+footer .bi {
+    color: inherit;
+}
+
+footer a:hover .bi {
+    color: var(--hover-coral) !important;
+}
+
+.navbar {
+    background-color: var(--background) !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-link:focus {
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.navbar .container-fluid {
+    flex-wrap: wrap;
+}
+
+.navbar-collapse {
+    width: 100%;
+}
+
+.navbar-nav {
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        justify-content: flex-start;
+    }
+}
+
+.image-section {
+    padding: 20px 0;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.subject-selection .card-body {
+    position: relative; /* Establishes the containing block for absolute positioning */
+    padding-bottom: 60px; /* Ensures there's space for the button */
+}
+
+.subject-selection .btn-primary {
+    position: absolute;
+    bottom: 5px; /* Positions the button 5px up from the bottom */
+    left: 50%;  /* Centers the button */
+    transform: translateX(-50%); /* Corrects the centering by shifting the button back by half its width */
+    width: 90%;  /* Adjust the width if necessary */
+}
+
+.btn-primary {
+    background: rgb(61, 72, 92);
+    border-color: transparent;
+    --bs-btn-hover-bg: var(--hover);
+}
+
+/* Styles for Bio page */
+.subject-selection-biology .col-md-3 {
+    width: 25%; /* Ensures four blocks in one row */
+    margin-bottom: 5rem;
+}
+
+.subject-selection-biology .row.d-flex {
+    justify-content: center; /* Centers the test block */
+}
+
+.subject-selection-biology.mb-5 {
+    margin-bottom: 5rem; /* Adds bottom margin to the test section */
+}
+
+.subject-selection-biology .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.subject-selection-biology .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Ensures content starts from the top and the button is at the bottom */
+}
+
+.subject-selection-biology .btn.btn-primary.mt-auto {
+    align-self: center;
+    width: 90%;
+}
+
+.img-banner{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.banner-container{
+    width: 100%;
+    overflow: hidden;
+    padding: 30px;
+
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Modal content styling */
+.modal-content {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #f9f9f9; /* Light background for the modal */
+}
+
+.modal-title {
+    font-size: 1.5rem; /* Larger font size for modal title */
+    font-weight: 500; /* Bold font weight for modal title */
+}
+
+.modal-body {
+    font-size: 1rem;
+    padding: 20px; /* More padding for body text */
+}
+
+.modal-body p {
+    text-align: justify; /* Justify text for better alignment */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.form-group {
+    padding: 5px; 
+}
+
+/* Customizing the close button of the Bootstrap modal */
+.modal-close {
+    font-size: 24px; /* Larger font size */
+    color: #6c757d; /* Custom color */
+}
+
+.modal-close:hover {
+    color: #000; /* Color change on hover */
+    cursor: pointer; /* Change cursor to pointer to indicate clickability */
+}
+
+/* Adding custom padding and possibly a background */
+.modal-close {
+    padding: 5px 10px;
+    border-radius: 50%; /* Optional: rounded shape */
+    background-color: #f8f9fa; /* Optional: background color */
+}
+
+/* Applying custom icon from Font Awesome or similar */
+.modal-close:before {
+    content: '\f00d'; /* FontAwesome icon code for 'times' */
+    font-family: 'FontAwesome'; /* Ensuring the correct font family is used */
+}
