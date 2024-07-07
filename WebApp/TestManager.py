@@ -9,7 +9,7 @@ def fetch_question(topic, subtopic, difficulty):
     table_name = f"{topic}_{subtopic}"
     conn = sqlite3.connect('./WebApp/databases/new_questions_environment.db')
     cursor = conn.cursor()
-    cursor.execute(f"SELECT id, question, correct_answer FROM {table_name} WHERE difficulty = ? LIMIT 1", (difficulty,))
+    cursor.execute(f"SELECT id, question, correct_answer, image_path FROM {table_name} WHERE difficulty = ? LIMIT 1", (difficulty,))
     question_data = cursor.fetchone()
     conn.close()
     question_number = 1  # Reset question number for new topic session
@@ -46,10 +46,9 @@ def process_answer_and_fetch_next(topic, subtopic, question_id, submitted_answer
         return None, question_number, is_correct    
     
     # Fetch the next question based on the new difficulty
-    cursor.execute(f"SELECT id, question, correct_answer FROM {table_name} WHERE difficulty = ? LIMIT 1", (new_difficulty,))
+    cursor.execute(f"SELECT id, question, correct_answer, image_path FROM {table_name} WHERE difficulty = ? LIMIT 1", (new_difficulty,))
     new_question_data = cursor.fetchone()
     conn.close()
     
     question_number += 1
     return (new_question_data, question_number, is_correct)
-

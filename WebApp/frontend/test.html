@@ -7,26 +7,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-        <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="questionModalLabel">Question Number: {{ question_number }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="bi bi-x-lg"></i> <!-- Using a large 'x' icon from Bootstrap Icons -->
-                    </button>
-                                      
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="question-form" method="POST" class="question-form" action="/submit-answer">
                         <input type="hidden" name="question_id" value="{{ question_id }}">
                         <div class="form-group">
                             <label for="answer">{{ question }}</label>
-                            </div>
+                        </div>
+                        <div id="image-container" class="mb-3">
+                            {% if image_path %}
+                                <img src="{{ image_path }}" alt="Question Image">
+                            {% endif %}                        </div>
                         <div class="form-group">
                             <textarea id="answer" name="answer" placeholder="Enter answer here" class="form-control"></textarea>
                         </div>
@@ -35,11 +35,9 @@
                         </div>
                     </form>
                 </div>
-                
             </div>
         </div>
     </div>
-
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -128,10 +126,8 @@
         </div>
     </section>
     
-
-    <section class="subject-selection-biology py-4 mb-5"> <!-- Add bottom margin -->
+    <section class="subject-selection-biology py-4 mb-5">
         <div class="container">
-            <!-- Introductory Text Above the Test -->
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-center">Think You Are Ready</h2>
@@ -139,13 +135,13 @@
             </div>
             
             <div class="container">
-            <div class="row d-flex justify-content-center">
-                <!-- Test Section -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">Take a test to evaluate your understanding of the subject matter.</p>
-                            <button class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#questionModal">Start Test</button>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p class="card-text">Take a test to evaluate your understanding of the subject matter.</p>
+                                <button class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#questionModal">Start Test</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,13 +154,14 @@
             <h3>Follow us:</h3>
             <p>Connect with us on social media!</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-            </ul>
-        </div>
-    </footer>
+                    <li class="list-inline-item"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </div>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='modal.js') }}"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='modal.js') }}"></script>
+    </body>
+</html>
