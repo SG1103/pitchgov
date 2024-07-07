@@ -209,3 +209,27 @@ footer a:hover .bi {
     content: '\f00d'; /* FontAwesome icon code for 'times' */
     font-family: 'FontAwesome'; /* Ensuring the correct font family is used */
 }
+
+.card-header {
+    background-color: var(--background) !important;
+    color: #333;
+}
+
+.card-body ul a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card-body ul a:hover {
+    text-decoration: underline;
+}
+
+.list-group-item {
+    border: none;  /* Remove borders for a cleaner look */
+    border-radius: 0.5rem; /* Rounded corners for a softer look */
+    margin-bottom: 10px; /* Space between items */
+}
+
+.list-group-item:hover {
+    background-color: #f0f0f0; /* Subtle hover effect */
+}
