@@ -235,3 +235,19 @@ footer a:hover .bi {
 .list-group-item:hover {
     background-color: #f0f0f0; /* Subtle hover effect */
 }
+
+.dashboard {
+    background-color: #f8f9fa;  /* Light gray background */
+    border: 1px solid #e3e6f0;  /* Subtle border */
+    border-radius: 10px;  /* Rounded corners */
+}
+
+.welcome-message {
+    background: var(--hover) !important;  /* Light gray background */
+    color: #fff;
+    border: 1px solid #e3e6f0;  /* Subtle border */
+    border-radius: 10px;  /* Rounded corners for a softer look */
+    font-family: Arial, sans-serif;  /* Font styling */
+    font-size: 24px;  /* Larger font size for visibility */
+}
+

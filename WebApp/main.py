@@ -7,7 +7,20 @@ app = Flask(__name__, template_folder='frontend', static_folder='frontend')
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    levels = {
+        'chemistry': 7,
+        'physics': 6,
+        'biology': 8
+    }
+    recent_test = {
+        'subject': 'Chemistry',
+        'name': 'Molecular Bonds',
+        'score': 6
+    }
+
+    student_name = "Saad Golandaz"
+
+    return render_template('index.html', levels=levels, student_name=student_name, recent_test=recent_test)
 
 @app.route('/biology')
 def biology():

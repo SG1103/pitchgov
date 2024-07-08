@@ -25,40 +25,46 @@
                         <li class="nav-item"><a class="nav-link" href="rev.html">Revise</a></li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Help/Support</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    
   
     <section class="container mt-4">
         <div class="row">
-            <div class="col-md-15">
-                <main class="p-4 mb-4 bg-white rounded shadow-sm">
-                    <h2>About Us</h2>
-                    <p>The AI Learning Companion is an AI-driven educational platform designed to enhance traditional learning models. It aims to provide a personalized, engaging, and effective learning experience by adapting to the unique needs of each student. Through adaptive quizzes, an AI-powered tutor, and gamification, the platform encourages student engagement and improves learning outcomes.</p>
-                    
-                    <h3>Key Features:</h3>
-                    <ul>
-                        <li>Personalized Learning Paths: Customizes learning based on individual performance and preferences.</li>
-                        <li>Adaptive Quizzes: Uses Item Response Theory (IRT) to dynamically adjust the difficulty of questions.</li>
-                        <li>Gamification: Incorporates elements such as points, badges, and leaderboards to motivate students.</li>
-                        <li>Instant AI Tutor: Provides real-time feedback and assistance, acting like a personal tutor.</li>
-                        <li>Resource Recommendations: Suggests educational resources tailored to the student's needs and learning styles.</li>
-                    </ul>
-                    
-                    <h3>The platform is designed to:</h3>
-                    <ul>
-                        <li>Enhance student engagement and motivation through interactive content and challenges.</li>
-                        <li>Provide immediate feedback and support to help students understand and retain information.</li>
-                        <li>Offer a personalized learning experience that adapts to the pace and style of each student.</li>
-                    </ul>
-                </main>
+            <div class="col-lg-12">
+                <div class="welcome-message text-center p-3 mb-4 bg-light rounded shadow-sm">
+                    <h1>Welcome Back, {{ student_name }}!</h1>
+                </div>
+                <div class="dashboard p-4 mb-4 bg-light rounded shadow-sm">
+                    <h2 class="border-bottom pb-2 mb-4">Student Dashboard</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Academic Levels</h4>
+                            <p><strong>Chemistry:</strong> Level <span class="badge {{ 'bg-success' if levels.chemistry >= 7 else 'bg-warning' if levels.chemistry >= 4 else 'bg-danger' }}" data-level="{{ levels.chemistry }}">{{ levels.chemistry }}</span></p>
+                            <p><strong>Physics:</strong> Level <span class="badge {{ 'bg-success' if levels.physics >= 7 else 'bg-warning' if levels.physics >= 4 else 'bg-danger' }}" data-level="{{ levels.physics }}">{{ levels.physics }}</span></p>
+                            <p><strong>Biology:</strong> Level <span class="badge {{ 'bg-success' if levels.biology >= 7 else 'bg-warning' if levels.biology >= 4 else 'bg-danger' }}" data-level="{{ levels.biology }}">{{ levels.biology }}</span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Most Recent Test</h4>
+                            <p><strong>{{ recent_test.subject }}: {{ recent_test.name }}</strong> - Result: <span class="badge {{ 'bg-success' if recent_test.score >= 7 else 'bg-warning' if recent_test.score >= 4 else 'bg-danger' }}">{{ recent_test.score }}</span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Upcoming Activities</h4>
+                            <p><i class="bi bi-calendar-event-fill"></i> Physics Webinar: Next Thursday at 2 PM</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    
+    
 
     
     <section class="image-section">
@@ -132,6 +138,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 
 </body>
 </html>
