@@ -1,26 +1,24 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import TestManager
 import random
+import json
 from ResultAnalyzer import getresults, send_teams_message
 
 app = Flask(__name__, template_folder='frontend', static_folder='frontend')
 
 @app.route('/')
 def index():
-    levels = {
-        'chemistry': 7,
-        'physics': 6,
-        'biology': 8
-    }
-    recent_test = {
-        'subject': 'Chemistry',
-        'name': 'Molecular Bonds',
-        'score': 6
-    }
-
+    with open('./WebApp/databases/students.json', 'r') as f:
+        students = json.load(f)
+    
+    # Assume you want to display data for 'Saad Golandaz'
     student_name = "Saad Golandaz"
-
-    return render_template('index.html', levels=levels, student_name=student_name, recent_test=recent_test)
+    student_data = students.get(student_name, {'levels': {}, 'recent_test': {}})
+    
+    return render_template('index.html', 
+                           levels=student_data['levels'], 
+                           recent_test=student_data['recent_test'], 
+                           student_name=student_name)
 
 @app.route('/biology')
 def biology():
