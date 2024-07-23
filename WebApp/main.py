@@ -11,7 +11,7 @@ def index():
     with open('./WebApp/databases/students.json', 'r') as f:
         students = json.load(f)
     
-    student_name = "Zuha Khan"
+    student_name = "Saad Golandaz"
     student_data = students.get(student_name, {'levels': {}, 'recent_test': {}})
     
     return render_template('index.html', 

@@ -46,17 +46,17 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h4>Academic Levels</h4>
-                            <p><strong>Chemistry:</strong> Level <span class="badge {{ 'bg-success' if levels.chemistry >= 7 else 'bg-warning' if levels.chemistry >= 4 else 'bg-danger' }}" data-level="{{ levels.chemistry }}">{{ levels.chemistry }}</span></p>
-                            <p><strong>Physics:</strong> Level <span class="badge {{ 'bg-success' if levels.physics >= 7 else 'bg-warning' if levels.physics >= 4 else 'bg-danger' }}" data-level="{{ levels.physics }}">{{ levels.physics }}</span></p>
-                            <p><strong>Biology:</strong> Level <span class="badge {{ 'bg-success' if levels.biology >= 7 else 'bg-warning' if levels.biology >= 4 else 'bg-danger' }}" data-level="{{ levels.biology }}">{{ levels.biology }}</span></p>
+                            <p><strong>Chemistry:</strong> Level <span class="badge {{ 'bg-success' if levels.chemistry >= 7 else 'bg-warning' if levels.chemistry >= 4 else 'bg-danger' }}" data-level="{{ levels.chemistry }}"> A </span></p>
+                            <p><strong>Physics:</strong> Level <span class="badge {{ 'bg-success' if levels.physics >= 7 else 'bg-warning' if levels.physics >= 4 else 'bg-danger' }}" data-level="{{ levels.physics }}"> B </span></p>
+                            <p><strong>Biology:</strong> Level <span class="badge {{ 'bg-success' if levels.biology >= 7 else 'bg-warning' if levels.biology >= 4 else 'bg-danger' }}" data-level="{{ levels.biology }}"> A </span></p>
                         </div>
                         <div class="col-md-4">
                             <h4>Most Recent Test</h4>
-                            <p><strong>{{ recent_test.subject }}: {{ recent_test.name }}</strong> - Result: <span class="badge {{ 'bg-success' if recent_test.score >= 7 else 'bg-warning' if recent_test.score >= 4 else 'bg-danger' }}">{{ recent_test.score }}</span></p>
+                            <p><strong>{{ recent_test.subject }}: {{ recent_test.name }}</strong> - Result: <span class="badge {{ 'bg-success' if recent_test.score >= 7 else 'bg-warning' if recent_test.score >= 4 else 'bg-danger' }}"> C </span></p>
                         </div>
                         <div class="col-md-4">
                             <h4>Upcoming Activities</h4>
-                            <p><i class="bi bi-calendar-event-fill"></i> Physics Webinar: Next Thursday at 2 PM</p>
+                            <p><i class="bi bi-calendar-event-fill"></i> Structure of Molecules: Next Thursday at 2 PM</p>
                         </div>
                     </div>
                 </div>
