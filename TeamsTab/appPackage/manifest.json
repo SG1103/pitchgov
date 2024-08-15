@@ -29,8 +29,8 @@
         {
             "entityId": "index0",
             "name": "Personal Tab",
-            "contentUrl": "https://ebd5-109-175-144-37.ngrok-free.app",
-            "websiteUrl": "https://ebd5-109-175-144-37.ngrok-free.app",
+            "contentUrl": "https://e3fa-81-2-167-95.ngrok-free.app",
+            "websiteUrl": "https://e3fa-81-2-167-95.ngrok-free.app",
             "scopes": [
                 "personal"
             ]
@@ -41,6 +41,6 @@
         "messageTeamMembers"
     ],
     "validDomains": [
-        "https://ebd5-109-175-144-37.ngrok-free.app"
+        "https://e3fa-81-2-167-95.ngrok-free.app"
     ]
 }

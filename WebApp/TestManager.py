@@ -3,6 +3,8 @@ from OpenaiHandling import evaluate_answer
 
 question_number = 0
 responses_log = []
+question_ids = [1, 5, 4, 10, 13, 15, 18, 20, 23, 25]  # Example list of specific IDs
+
 
 def fetch_question(topic, subtopic, difficulty):
     global question_number
@@ -46,7 +48,8 @@ def process_answer_and_fetch_next(topic, subtopic, question_id, submitted_answer
         return None, question_number, is_correct    
     
     # Fetch the next question based on the new difficulty
-    cursor.execute(f"SELECT id, question, correct_answer, image_path FROM {table_name} WHERE difficulty = ? ORDER BY RANDOM() LIMIT 1", (new_difficulty,))
+    next_question_id = question_ids[question_number]
+    cursor.execute(f"SELECT id, question, correct_answer, image_path FROM {table_name} WHERE id = ?", (next_question_id,))
     new_question_data = cursor.fetchone()
     conn.close()
     
